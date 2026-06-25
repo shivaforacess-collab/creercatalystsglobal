@@ -378,6 +378,14 @@
     color:rgba(255,255,255,0.3); font-size:2rem;
   }
   .gallery-ph-item span { font-size:0.75rem; margin-top:0.5rem; color:rgba(255,255,255,0.2); }
+  .gallery-caption {
+    position:absolute; bottom:0; left:0; right:0;
+    background:linear-gradient(transparent, rgba(26,35,126,0.85));
+    color:#fff; font-size:0.78rem; font-weight:600;
+    padding:1.5rem 0.8rem 0.6rem; letter-spacing:0.04em;
+    opacity:0; transition:0.3s;
+  }
+  .gallery-item:hover .gallery-caption { opacity:1; }
 
   /* ── POSTER ── */
   #poster { background: linear-gradient(135deg, var(--navy), #0d1b6e); padding:80px 2rem; }
@@ -878,25 +886,70 @@
     <div class="section-label">Our Moments</div>
     <h2 class="section-title">Photo <em>Gallery</em></h2>
     <div class="gold-rule"></div>
-    <p class="section-lead">Upload and showcase your campus events, placement drives, and training sessions.</p>
+    <p class="section-lead">Showcasing our campus events, placement drives, training sessions, and student success stories.</p>
 
-    <label for="galleryUpload" class="gallery-upload-zone" id="dropZone">
-      <div class="upload-icon">📸</div>
-      <h3>Click to Upload Photos</h3>
-      <p>Drag &amp; drop images here, or click to browse<br/>Supports JPG, PNG, GIF, WEBP</p>
-      <input type="file" id="galleryUpload" multiple accept="image/*" onchange="handleGalleryUpload(event)"/>
-    </label>
-
-    <div class="gallery-grid" id="galleryGrid"></div>
-
-    <div class="gallery-placeholder" id="galleryPlaceholder">
-      <div class="gallery-ph-item">🏫<span>Campus Drive</span></div>
-      <div class="gallery-ph-item">🎤<span>Training Session</span></div>
-      <div class="gallery-ph-item">🏆<span>Award Ceremony</span></div>
-      <div class="gallery-ph-item">👥<span>Job Fair</span></div>
-      <div class="gallery-ph-item">🎓<span>Placement Day</span></div>
-      <div class="gallery-ph-item">📣<span>HR Conclave</span></div>
+    <!-- HOW TO ADD PHOTOS BOX -->
+    <div style="background:linear-gradient(135deg,var(--navy),var(--royal));border-radius:12px;padding:2rem;margin:2rem 0;border:1px solid var(--gold);">
+      <div style="color:var(--gold);font-size:0.7rem;letter-spacing:0.15em;font-weight:700;margin-bottom:0.5rem;">📌 HOW TO ADD YOUR PHOTOS</div>
+      <div style="color:rgba(255,255,255,0.9);font-size:0.88rem;line-height:2;">
+        <b style="color:var(--gold);">Step 1:</b> Go to your GitHub repository → click <b style="color:#fff;">Add file → Upload files</b><br/>
+        <b style="color:var(--gold);">Step 2:</b> Create a folder called <code style="background:rgba(255,255,255,0.1);padding:2px 8px;border-radius:4px;color:var(--gold);">images</code> and upload your photos there<br/>
+        <b style="color:var(--gold);">Step 3:</b> Note the exact filename (e.g. <code style="background:rgba(255,255,255,0.1);padding:2px 8px;border-radius:4px;color:var(--gold);">event1.jpg</code>)<br/>
+        <b style="color:var(--gold);">Step 4:</b> Edit <code style="background:rgba(255,255,255,0.1);padding:2px 8px;border-radius:4px;color:var(--gold);">index.html</code> → find <code style="background:rgba(255,255,255,0.1);padding:2px 8px;border-radius:4px;color:var(--gold);">ADD YOUR PHOTOS HERE</code> → replace the src with your filename
+      </div>
     </div>
+
+    <!-- GALLERY GRID — ADD YOUR PHOTOS HERE -->
+    <div class="gallery-grid" id="galleryGrid">
+
+      <!-- ✅ PHOTO CARDS — Replace src="images/photo1.jpg" with your actual image filenames -->
+      <!-- To add more photos: copy one <div class="gallery-item"> block and paste below -->
+
+      <div class="gallery-item" onclick="openLightbox('images/photo1.jpg','Campus Drive')">
+        <img src="images/photo1.jpg" alt="Campus Drive" onerror="this.parentElement.style.display='none'"/>
+        <div class="gallery-overlay"><span>🔍</span></div>
+        <div class="gallery-caption">Campus Drive</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox('images/photo2.jpg','Training Session')">
+        <img src="images/photo2.jpg" alt="Training Session" onerror="this.parentElement.style.display='none'"/>
+        <div class="gallery-overlay"><span>🔍</span></div>
+        <div class="gallery-caption">Training Session</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox('images/photo3.jpg','Award Ceremony')">
+        <img src="images/photo3.jpg" alt="Award Ceremony" onerror="this.parentElement.style.display='none'"/>
+        <div class="gallery-overlay"><span>🔍</span></div>
+        <div class="gallery-caption">Award Ceremony</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox('images/photo4.jpg','Job Fair')">
+        <img src="images/photo4.jpg" alt="Job Fair" onerror="this.parentElement.style.display='none'"/>
+        <div class="gallery-overlay"><span>🔍</span></div>
+        <div class="gallery-caption">Job Fair</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox('images/photo5.jpg','Placement Day')">
+        <img src="images/photo5.jpg" alt="Placement Day" onerror="this.parentElement.style.display='none'"/>
+        <div class="gallery-overlay"><span>🔍</span></div>
+        <div class="gallery-caption">Placement Day</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox('images/photo6.jpg','HR Conclave')">
+        <img src="images/photo6.jpg" alt="HR Conclave" onerror="this.parentElement.style.display='none'"/>
+        <div class="gallery-overlay"><span>🔍</span></div>
+        <div class="gallery-caption">HR Conclave</div>
+      </div>
+
+    </div>
+
+    <!-- EMPTY STATE shown when no photos are loaded yet -->
+    <div id="galleryEmpty" style="text-align:center;padding:3rem;color:var(--text-mid);border:2px dashed rgba(26,35,126,0.2);border-radius:12px;margin-top:1rem;">
+      <div style="font-size:3rem;margin-bottom:1rem;">🖼️</div>
+      <h3 style="color:var(--navy);margin-bottom:0.5rem;">No Photos Yet</h3>
+      <p style="font-size:0.88rem;">Upload your photos to the GitHub <code>images/</code> folder and they will appear here automatically.</p>
+    </div>
+
   </div>
 </section>
 
@@ -1107,6 +1160,18 @@
 <a href="#home" class="back-to-top" id="backToTop">↑</a>
 
 <script>
+
+// Gallery empty state
+window.addEventListener('load', function(){
+  const grid = document.getElementById('galleryGrid');
+  const empty = document.getElementById('galleryEmpty');
+  if(!grid || !empty) return;
+  const items = grid.querySelectorAll('.gallery-item');
+  let visible = 0;
+  items.forEach(el => { if(el.style.display !== 'none') visible++; });
+  empty.style.display = visible > 0 ? 'none' : 'block';
+});
+
 // ── Logo fallback
 function setupLogo(id){
   const img = document.getElementById(id);
