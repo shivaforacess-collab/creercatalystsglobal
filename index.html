@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Career Catalysts Global – TCCG</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #1a237e;
+    --royal: #283593;
+    --blue-mid: #3949ab;
+    --blue-light: #5c6bc0;
+    --gold: #FFD600;
+    --gold-deep: #F9A825;
+    --white: #ffffff;
+    --off-white: #f5f7ff;
+    --text-dark: #1a1a2e;
+    --text-mid: #37474f;
+    --border: rgba(255,214,0,0.25);
+    --card-bg: rgba(255,255,255,0.05);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:1000;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem;
+    height: 70px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .nav-logo img { height:48px; border-radius:4px; }
+  .nav-brand {
+    font-size: 0.75rem; font-weight:700; color: var(--gold);
+    letter-spacing:0.05em; line-height:1.3;
+    display: flex; flex-direction:column;
+  }
+  .nav-brand span { color: var(--white); font-weight:400; font-size:0.65rem; letter-spacing:0.12em; }
+
+  .nav-links {
+    display: flex; gap:0; list-style:none;
+  }
+  .nav-links a {
+    display:block; padding: 0 1.1rem; height:70px; line-height:70px;
+    color: var(--white); text-decoration:none;
+    font-size: 0.82rem; font-weight:500; letter-spacing:0.04em;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { background: var(--blue-mid); color: var(--gold); }
+
+  .hamburger {
+    display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px;
+  }
+  .hamburger span { display:block; width:25px; height:2px; background:var(--gold); border-radius:2px; transition:0.3s; }
+
+  .mobile-menu {
+    display:none; position:fixed; top:70px; left:0; right:0; z-index:999;
+    background: var(--navy); padding:1rem 0;
+    border-top: 2px solid var(--gold);
+  }
+  .mobile-menu.open { display:block; }
+  .mobile-menu a {
+    display:block; padding: 0.75rem 2rem;
+    color:var(--white); text-decoration:none;
+    font-size:0.9rem; font-weight:500;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .mobile-menu a:hover { color:var(--gold); }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--royal) 50%, #1565c0 100%);
+    display:flex; align-items:center; justify-content:center;
+    padding: 100px 2rem 3rem;
+    position:relative; overflow:hidden;
+  }
+  #home::before {
+    content:''; position:absolute; inset:0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,214,0,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(255,214,0,0.05) 0%, transparent 50%);
+  }
+  /* decorative circles */
+  #home::after {
+    content:''; position:absolute;
+    width:500px; height:500px; border-radius:50%;
+    border: 1px solid rgba(255,214,0,0.1);
+    bottom:-200px; right:-200px;
+  }
+
+  .hero-inner {
+    max-width:900px; text-align:center; position:relative; z-index:1;
+  }
+  .hero-eyebrow {
+    display:inline-block;
+    background: rgba(255,214,0,0.12);
+    border: 1px solid var(--gold);
+    color: var(--gold); font-size:0.72rem; letter-spacing:0.18em;
+    padding: 6px 18px; border-radius:40px; margin-bottom:1.5rem;
+    font-weight:600;
+  }
+  .hero-logo { height:80px; margin-bottom:1.5rem; border-radius:8px; }
+  .hero-title {
+    font-family:'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight:900; color:var(--white);
+    line-height:1.1; margin-bottom:0.5rem;
+  }
+  .hero-title em { color:var(--gold); font-style:normal; }
+  .hero-tagline {
+    font-size:clamp(0.9rem, 2vw, 1.15rem);
+    color:rgba(255,255,255,0.72);
+    letter-spacing:0.08em; margin-bottom:2.5rem;
+    font-weight:300;
+  }
+  .hero-stats {
+    display:flex; justify-content:center; gap:3rem; flex-wrap:wrap;
+    margin-bottom:3rem;
+  }
+  .stat { text-align:center; }
+  .stat-num { font-size:2.2rem; font-weight:900; color:var(--gold); line-height:1; }
+  .stat-label { font-size:0.72rem; color:rgba(255,255,255,0.6); letter-spacing:0.1em; margin-top:4px; }
+  .hero-cta {
+    display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
+  }
+  .btn-primary {
+    background:var(--gold); color:var(--navy);
+    padding:14px 32px; border-radius:4px;
+    font-weight:700; font-size:0.88rem; letter-spacing:0.06em;
+    text-decoration:none; border:none; cursor:pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display:inline-block;
+  }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(255,214,0,0.4); }
+  .btn-outline {
+    border:2px solid rgba(255,255,255,0.4); color:var(--white);
+    padding:14px 32px; border-radius:4px;
+    font-weight:600; font-size:0.88rem; letter-spacing:0.06em;
+    text-decoration:none; cursor:pointer;
+    transition: border-color 0.2s, background 0.2s;
+    display:inline-block;
+    background:transparent;
+  }
+  .btn-outline:hover { border-color:var(--gold); background:rgba(255,214,0,0.08); }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 2rem; }
+  .container { max-width:1100px; margin:0 auto; }
+
+  .section-label {
+    font-size:0.7rem; letter-spacing:0.2em; color:var(--blue-mid);
+    font-weight:700; text-transform:uppercase; margin-bottom:0.5rem;
+  }
+  .section-title {
+    font-family:'Playfair Display', serif;
+    font-size:clamp(1.8rem, 4vw, 2.8rem);
+    font-weight:900; color:var(--navy); line-height:1.15;
+    margin-bottom:1rem;
+  }
+  .section-title em { color:var(--gold-deep); font-style:normal; }
+  .section-lead { font-size:1.05rem; color:var(--text-mid); max-width:620px; }
+
+  .gold-rule { width:48px; height:3px; background:var(--gold); margin:1.2rem 0; border-radius:2px; }
+
+  /* ── ABOUT ── */
+  #about { background:var(--off-white); }
+  .about-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;
+    margin-top:3rem;
+  }
+  .about-card {
+    background:var(--white); border-radius:8px;
+    padding:2rem; box-shadow:0 4px 24px rgba(26,35,126,0.08);
+    border-left:4px solid var(--gold);
+    margin-top:1.5rem;
+  }
+  .about-card h3 { font-size:1rem; font-weight:700; color:var(--navy); margin-bottom:0.4rem; }
+  .about-card p { font-size:0.9rem; color:var(--text-mid); }
+
+  .why-list { list-style:none; margin-top:1.5rem; }
+  .why-list li {
+    padding:0.6rem 0; font-size:0.92rem; color:var(--text-mid);
+    border-bottom:1px solid rgba(26,35,126,0.06);
+    display:flex; gap:0.7rem; align-items:flex-start;
+  }
+  .why-list li::before {
+    content:'✔'; color:var(--gold-deep); font-weight:700; flex-shrink:0; margin-top:1px;
+  }
+
+  /* ── SERVICES ── */
+  #services { background:var(--white); }
+  .services-tabs {
+    display:flex; gap:0.5rem; margin:2.5rem 0 2rem; flex-wrap:wrap;
+  }
+  .tab-btn {
+    padding:10px 22px; border-radius:40px;
+    border: 2px solid var(--blue-light);
+    background:transparent; color:var(--blue-mid);
+    font-size:0.82rem; font-weight:600; cursor:pointer;
+    transition:0.2s;
+  }
+  .tab-btn.active, .tab-btn:hover {
+    background:var(--navy); color:var(--gold); border-color:var(--navy);
+  }
+
+  .tab-content { display:none; }
+  .tab-content.active { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; }
+
+  .service-card {
+    background:var(--off-white); border-radius:8px; padding:1.8rem;
+    border-top:3px solid var(--gold);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .service-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(26,35,126,0.12); }
+  .service-icon { font-size:2rem; margin-bottom:0.8rem; }
+  .service-card h3 { font-size:1rem; font-weight:700; color:var(--navy); margin-bottom:0.7rem; }
+  .service-card ul { list-style:none; }
+  .service-card ul li {
+    font-size:0.84rem; color:var(--text-mid);
+    padding:4px 0; padding-left:14px; position:relative;
+  }
+  .service-card ul li::before {
+    content:'›'; position:absolute; left:0; color:var(--gold-deep); font-weight:700;
+  }
+
+  /* ── MENTOR ── */
+  #mentor { background: linear-gradient(135deg, var(--navy), var(--royal)); }
+  .mentor-inner {
+    display:grid; grid-template-columns:1fr 2fr; gap:4rem; align-items:center;
+  }
+  .mentor-portrait {
+    background: rgba(255,214,0,0.1);
+    border: 3px solid var(--gold);
+    border-radius:12px; padding:2.5rem;
+    text-align:center;
+  }
+  .mentor-avatar {
+    width:120px; height:120px; border-radius:50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+    margin:0 auto 1rem;
+    display:flex; align-items:center; justify-content:center;
+    font-size:2.5rem; font-weight:900; color:var(--navy);
+  }
+  .mentor-name { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:var(--gold); }
+  .mentor-role { font-size:0.78rem; color:rgba(255,255,255,0.6); letter-spacing:0.12em; margin-top:4px; }
+  .mentor-stats { margin-top:2rem; display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .m-stat { text-align:center; }
+  .m-stat-num { font-size:1.5rem; font-weight:900; color:var(--gold); }
+  .m-stat-label { font-size:0.65rem; color:rgba(255,255,255,0.55); letter-spacing:0.08em; line-height:1.3; margin-top:2px; }
+
+  .mentor-content .section-title { color:var(--white); }
+  .mentor-content .section-label { color:var(--gold); }
+  .mentor-content .gold-rule { background: rgba(255,214,0,0.4); }
+
+  .mentor-points { list-style:none; margin-top:1.5rem; }
+  .mentor-points li {
+    display:flex; gap:1rem; padding:1rem 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    color:rgba(255,255,255,0.85); font-size:0.92rem;
+  }
+  .mentor-points li .check { color:var(--gold); font-weight:700; flex-shrink:0; }
+  .mentor-contact {
+    margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;
+  }
+  .contact-chip {
+    background:rgba(255,214,0,0.12); border:1px solid var(--gold);
+    padding:8px 16px; border-radius:40px;
+    font-size:0.82rem; color:var(--gold); text-decoration:none;
+    transition:background 0.2s;
+  }
+  .contact-chip:hover { background:rgba(255,214,0,0.2); }
+
+  /* ── PROCESS ── */
+  #process { background:var(--off-white); }
+  .process-steps {
+    display:flex; gap:0; margin-top:3rem; flex-wrap:wrap;
+  }
+  .step {
+    flex:1; min-width:160px;
+    background:var(--white); padding:2rem 1.5rem;
+    text-align:center; position:relative;
+    border-top:3px solid transparent;
+    transition:border-color 0.2s, box-shadow 0.2s;
+  }
+  .step:hover { border-color:var(--gold); box-shadow:0 8px 24px rgba(26,35,126,0.1); }
+  .step:not(:last-child)::after {
+    content:'→'; position:absolute; right:-12px; top:50%;
+    transform:translateY(-50%);
+    font-size:1.5rem; color:var(--gold); z-index:1;
+  }
+  .step-num {
+    width:48px; height:48px; border-radius:50%;
+    background:var(--navy); color:var(--gold);
+    font-size:1.1rem; font-weight:900;
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 1rem;
+  }
+  .step h3 { font-size:0.88rem; font-weight:700; color:var(--navy); margin-bottom:0.4rem; }
+  .step p { font-size:0.78rem; color:var(--text-mid); }
+
+  /* ── INDUSTRIES ── */
+  #industries { background:var(--white); text-align:center; }
+  .industry-grid {
+    display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin-top:3rem;
+  }
+  .industry-tag {
+    background:var(--off-white); border:2px solid rgba(26,35,126,0.15);
+    padding:12px 24px; border-radius:40px;
+    font-size:0.85rem; font-weight:600; color:var(--navy);
+    transition:0.2s; cursor:default;
+  }
+  .industry-tag:hover { background:var(--navy); color:var(--gold); border-color:var(--navy); }
+
+  /* ── GALLERY ── */
+  #gallery { background:var(--off-white); }
+  .gallery-upload-zone {
+    border:2px dashed var(--blue-light); border-radius:12px;
+    padding:3rem; text-align:center; margin:2rem 0;
+    background:rgba(26,35,126,0.02); cursor:pointer;
+    transition:border-color 0.2s, background 0.2s;
+  }
+  .gallery-upload-zone:hover { border-color:var(--gold); background:rgba(255,214,0,0.03); }
+  .upload-icon { font-size:3rem; margin-bottom:1rem; }
+  .gallery-upload-zone h3 { color:var(--navy); font-size:1rem; margin-bottom:0.4rem; }
+  .gallery-upload-zone p { color:var(--text-mid); font-size:0.85rem; }
+  .gallery-upload-zone input[type=file] { display:none; }
+
+  .gallery-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:1rem; margin-top:1.5rem;
+  }
+  .gallery-item {
+    position:relative; border-radius:8px; overflow:hidden;
+    aspect-ratio:4/3; background:var(--navy);
+    cursor:pointer;
+  }
+  .gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.3s; }
+  .gallery-item:hover img { transform:scale(1.05); }
+  .gallery-item .gallery-overlay {
+    position:absolute; inset:0; background:rgba(26,35,126,0.6);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; transition:0.2s;
+  }
+  .gallery-item:hover .gallery-overlay { opacity:1; }
+  .gallery-overlay span { color:var(--gold); font-size:1.5rem; }
+  .gallery-remove {
+    position:absolute; top:8px; right:8px;
+    background:rgba(255,0,0,0.8); color:#fff; border:none;
+    border-radius:50%; width:28px; height:28px; cursor:pointer;
+    font-size:0.9rem; display:flex; align-items:center; justify-content:center;
+    opacity:0; transition:0.2s;
+  }
+  .gallery-item:hover .gallery-remove { opacity:1; }
+
+  .gallery-placeholder {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem;
+  }
+  .gallery-ph-item {
+    aspect-ratio:4/3; border-radius:8px;
+    background: linear-gradient(135deg, var(--navy), var(--blue-mid));
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:rgba(255,255,255,0.3); font-size:2rem;
+  }
+  .gallery-ph-item span { font-size:0.75rem; margin-top:0.5rem; color:rgba(255,255,255,0.2); }
+
+  /* ── POSTER ── */
+  #poster { background: linear-gradient(135deg, var(--navy), #0d1b6e); padding:80px 2rem; }
+  .poster-wrapper {
+    max-width:720px; margin:0 auto;
+    background: linear-gradient(145deg, #1a237e, #283593);
+    border:2px solid var(--gold); border-radius:16px;
+    padding:3rem; text-align:center;
+    position:relative; overflow:hidden;
+  }
+  .poster-wrapper::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse at 20% 80%, rgba(255,214,0,0.06), transparent 60%);
+    pointer-events:none;
+  }
+  .poster-header-bar {
+    background:var(--gold); color:var(--navy);
+    padding:10px 20px; border-radius:6px;
+    font-size:0.7rem; font-weight:700; letter-spacing:0.15em;
+    display:inline-block; margin-bottom:2rem;
+  }
+  .poster-logo { height:70px; margin-bottom:1.5rem; border-radius:6px; }
+  .poster-title {
+    font-family:'Playfair Display',serif;
+    font-size:2rem; font-weight:900; color:var(--white);
+    margin-bottom:0.4rem;
+  }
+  .poster-subtitle { font-size:0.78rem; color:rgba(255,255,255,0.55); letter-spacing:0.14em; margin-bottom:2rem; }
+  .poster-tagline {
+    font-size:1.15rem; color:var(--gold); font-weight:700; margin-bottom:0.5rem;
+  }
+  .poster-desc { font-size:0.88rem; color:rgba(255,255,255,0.75); margin-bottom:2rem; max-width:500px; margin-left:auto; margin-right:auto; }
+
+  .poster-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:2rem; text-align:left;
+  }
+  .poster-feature {
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,214,0,0.2);
+    border-radius:8px; padding:1.2rem;
+  }
+  .poster-feature h4 { color:var(--gold); font-size:0.82rem; font-weight:700; margin-bottom:0.6rem; }
+  .poster-feature ul { list-style:none; }
+  .poster-feature ul li { font-size:0.76rem; color:rgba(255,255,255,0.7); padding:3px 0; padding-left:14px; position:relative; }
+  .poster-feature ul li::before { content:'•'; position:absolute; left:0; color:var(--gold); }
+
+  .poster-cta {
+    background:var(--gold); color:var(--navy);
+    padding:1.5rem; border-radius:8px; margin-bottom:1.5rem;
+  }
+  .poster-cta h3 { font-size:1.1rem; font-weight:900; margin-bottom:0.3rem; }
+  .poster-cta p { font-size:0.82rem; font-weight:600; }
+  .poster-contact-row {
+    display:flex; justify-content:center; gap:2rem; flex-wrap:wrap;
+    margin-bottom:1.5rem;
+  }
+  .poster-contact-row a {
+    color:var(--gold); text-decoration:none; font-size:0.85rem; font-weight:600;
+  }
+  .poster-final-tagline {
+    font-style:italic; color:rgba(255,255,255,0.5); font-size:0.85rem;
+  }
+  .poster-download {
+    margin-top:2rem; text-align:center;
+  }
+
+  /* ── ENQUIRY ── */
+  #enquiry { background:var(--white); }
+  .enquiry-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-top:3rem;
+  }
+  .enquiry-info h3 { font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:1rem; }
+  .enquiry-info p { font-size:0.92rem; color:var(--text-mid); margin-bottom:2rem; }
+  .contact-item {
+    display:flex; align-items:center; gap:1rem; margin-bottom:1rem;
+    padding:1rem; background:var(--off-white); border-radius:8px;
+    border-left:3px solid var(--gold);
+  }
+  .contact-item .ci-icon { font-size:1.4rem; }
+  .contact-item .ci-label { font-size:0.7rem; color:var(--text-mid); letter-spacing:0.08em; }
+  .contact-item .ci-value { font-size:0.92rem; font-weight:600; color:var(--navy); }
+
+  .enquiry-form { display:flex; flex-direction:column; gap:1.2rem; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .form-group { display:flex; flex-direction:column; gap:6px; }
+  .form-group label { font-size:0.78rem; font-weight:600; color:var(--navy); letter-spacing:0.04em; }
+  .form-group input, .form-group select, .form-group textarea {
+    border:2px solid rgba(26,35,126,0.15); border-radius:6px;
+    padding:12px 14px; font-size:0.9rem; font-family:inherit;
+    color:var(--text-dark); background:var(--white);
+    transition:border-color 0.2s; outline:none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color:var(--blue-mid);
+  }
+  .form-group textarea { resize:vertical; min-height:120px; }
+  .form-submit {
+    background:var(--navy); color:var(--gold);
+    border:none; padding:14px 32px; border-radius:6px;
+    font-size:0.9rem; font-weight:700; letter-spacing:0.06em;
+    cursor:pointer; transition:0.2s; font-family:inherit;
+  }
+  .form-submit:hover { background:var(--blue-mid); }
+  .form-success {
+    display:none; background:#e8f5e9; border:1px solid #4caf50;
+    border-radius:8px; padding:1.5rem; text-align:center;
+    color:#2e7d32; font-weight:600;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background:var(--navy); color:rgba(255,255,255,0.65);
+    padding:3rem 2rem 1.5rem;
+  }
+  .footer-inner {
+    max-width:1100px; margin:0 auto;
+    display:grid; grid-template-columns:2fr 1fr 1fr; gap:3rem; margin-bottom:2rem;
+  }
+  .footer-brand img { height:50px; border-radius:4px; margin-bottom:1rem; }
+  .footer-brand p { font-size:0.82rem; line-height:1.7; }
+  .footer-col h4 { color:var(--gold); font-size:0.82rem; font-weight:700; letter-spacing:0.1em; margin-bottom:1rem; }
+  .footer-col ul { list-style:none; }
+  .footer-col ul li { margin-bottom:0.5rem; }
+  .footer-col ul li a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.83rem; transition:color 0.2s; }
+  .footer-col ul li a:hover { color:var(--gold); }
+  .footer-bottom {
+    max-width:1100px; margin:0 auto;
+    border-top:1px solid rgba(255,255,255,0.08); padding-top:1.5rem;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;
+    font-size:0.78rem;
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display:none; position:fixed; inset:0; z-index:9000;
+    background:rgba(0,0,0,0.92); align-items:center; justify-content:center;
+  }
+  .lightbox.open { display:flex; }
+  .lightbox img { max-width:90vw; max-height:90vh; border-radius:8px; }
+  .lightbox-close {
+    position:absolute; top:20px; right:24px;
+    background:none; border:none; color:var(--gold);
+    font-size:2.5rem; cursor:pointer;
+  }
+
+  /* ── BACK TO TOP ── */
+  .back-to-top {
+    position:fixed; bottom:2rem; right:2rem; z-index:500;
+    background:var(--gold); color:var(--navy);
+    width:44px; height:44px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; font-size:1.2rem; font-weight:900;
+    box-shadow:0 4px 16px rgba(0,0,0,0.2);
+    opacity:0; pointer-events:none; transition:opacity 0.3s;
+  }
+  .back-to-top.visible { opacity:1; pointer-events:auto; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:768px){
+    .nav-links { display:none; }
+    .hamburger { display:flex; }
+    .about-grid, .enquiry-grid, .mentor-inner { grid-template-columns:1fr; }
+    .poster-grid { grid-template-columns:1fr; }
+    .footer-inner { grid-template-columns:1fr; }
+    .form-row { grid-template-columns:1fr; }
+    .hero-stats { gap:2rem; }
+    .step:not(:last-child)::after { display:none; }
+    .process-steps { flex-direction:column; }
+    .step { min-width:auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="logo.jpg" alt="TCCG Logo" id="nav-logo-img"/>
+    <div class="nav-brand">
+      THE CAREER CATALYSTS GLOBAL
+      <span>TCCG – EMPOWERING CAREERS</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#mentor">Mentor</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#poster">Poster</a></li>
+    <li><a href="#enquiry">Enquiry</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMobile()">Home</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#mentor" onclick="closeMobile()">Mentor</a>
+  <a href="#process" onclick="closeMobile()">Process</a>
+  <a href="#industries" onclick="closeMobile()">Industries</a>
+  <a href="#gallery" onclick="closeMobile()">Gallery</a>
+  <a href="#poster" onclick="closeMobile()">Poster</a>
+  <a href="#enquiry" onclick="closeMobile()">Enquiry</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">CHENNAI · INDIA · SINCE 2000</div>
+    <img src="logo.jpg" alt="TCCG Logo" class="hero-logo" id="hero-logo-img"/>
+    <h1 class="hero-title">
+      Empowering Students.<br/>
+      <em>Enabling Careers.</em><br/>
+      Building Futures.
+    </h1>
+    <p class="hero-tagline">TRAINING · PLACEMENTS · HR CONSULTING · CAREER DEVELOPMENT</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">25+</div><div class="stat-label">YEARS EXPERIENCE</div></div>
+      <div class="stat"><div class="stat-num">500K+</div><div class="stat-label">MINDS INSPIRED</div></div>
+      <div class="stat"><div class="stat-num">6000+</div><div class="stat-label">TRAINING HOURS</div></div>
+      <div class="stat"><div class="stat-num">600+</div><div class="stat-label">INSTITUTIONS CONNECTED</div></div>
+    </div>
+    <div class="hero-cta">
+      <a href="#enquiry" class="btn-primary">Partner with TCCG</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">Who We Are</div>
+    <h2 class="section-title">Bridging Education &amp; <em>Employability</em></h2>
+    <div class="gold-rule"></div>
+    <div class="about-grid">
+      <div>
+        <p class="section-lead">The Career Catalysts Global is a professionally managed HR consulting and career development firm headquartered in Chennai. We help colleges and institutions bridge the gap between education and employability through deep expertise in training, placements, admissions strategy, and student career development.</p>
+        <div class="about-card">
+          <h3>🎓 For Colleges &amp; Institutions</h3>
+          <p>Proven expertise in student training, placement support, campus recruitment drives, and structured admission growth strategies.</p>
+        </div>
+        <div class="about-card">
+          <h3>🏢 For Corporates</h3>
+          <p>Fast and efficient recruitment solutions, talent mapping, workforce planning, and HR consulting across multiple industries.</p>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Why Choose TCCG</div>
+        <h3 style="font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">Our Competitive Edge</h3>
+        <ul class="why-list">
+          <li>Proven expertise in student training and placement support</li>
+          <li>Industry-oriented career development programs</li>
+          <li>Strong placement network across multiple sectors</li>
+          <li>Structured admission growth strategies</li>
+          <li>Personalized mentoring and student guidance</li>
+          <li>Expertise in Recruitment and Campus Placement</li>
+          <li>Fast and efficient recruitment support</li>
+          <li>Quality screening and skill matching</li>
+          <li>End-to-end support from Entry-level to Leadership roles</li>
+          <li>Industry-experienced trainers and coaches</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Our <em>Services</em></h2>
+    <div class="gold-rule"></div>
+    <p class="section-lead">Comprehensive solutions for colleges, institutions, and corporates — tailored to drive real outcomes.</p>
+    <div class="services-tabs">
+      <button class="tab-btn active" onclick="showTab('colleges')">For Colleges</button>
+      <button class="tab-btn" onclick="showTab('corporates')">For Corporates</button>
+      <button class="tab-btn" onclick="showTab('training')">Training Programs</button>
+    </div>
+
+    <div class="tab-content active" id="tab-colleges">
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>Training &amp; Placement Support</h3>
+        <ul>
+          <li>Campus recruitment drives</li>
+          <li>Placement planning and execution</li>
+          <li>Industry readiness programs</li>
+          <li>Resume building and interview preparation</li>
+          <li>One-on-one mock interview sessions</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌟</div>
+        <h3>Student Development Programs</h3>
+        <ul>
+          <li>Communication skills training</li>
+          <li>Personality development workshops</li>
+          <li>Goal setting and confidence building</li>
+          <li>Leadership development programs</li>
+          <li>Career guidance sessions</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📚</div>
+        <h3>Academic Growth Support</h3>
+        <ul>
+          <li>Admissions strategy consulting</li>
+          <li>Higher education counselling</li>
+          <li>Competitive Exam Coaching &amp; Cell Setup</li>
+          <li>Establishment of Higher Education Cells</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <h3>Induction Programs</h3>
+        <ul>
+          <li>Freshers orientation programs</li>
+          <li>Motivation sessions</li>
+          <li>Career awareness seminars</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-corporates">
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>Recruitment Solutions</h3>
+        <ul>
+          <li>Permanent staffing</li>
+          <li>Mid-level &amp; leadership hiring</li>
+          <li>Bulk hiring support</li>
+          <li>Campus hiring solutions</li>
+          <li>Industry-specific talent acquisition</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>HR Consulting Services</h3>
+        <ul>
+          <li>Workforce planning &amp; talent mapping</li>
+          <li>Employer branding support</li>
+          <li>Hiring strategy consultation</li>
+          <li>Compensation benchmarking</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤝</div>
+        <h3>Career Engagement Initiatives</h3>
+        <ul>
+          <li>Campus Drives – connecting students with recruiters</li>
+          <li>Job Fairs – large-scale hiring platforms</li>
+          <li>HR Conclaves – industry interaction &amp; networking</li>
+          <li>Lateral &amp; leadership hiring</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-training">
+      <div class="service-card">
+        <div class="service-icon">💬</div>
+        <h3>Soft Skills &amp; Communication</h3>
+        <ul>
+          <li>Communication skills training</li>
+          <li>Conflict management</li>
+          <li>Presentation &amp; public speaking</li>
+          <li>Business etiquette</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👑</div>
+        <h3>Leadership Development</h3>
+        <ul>
+          <li>Leadership development programs</li>
+          <li>Team building programs</li>
+          <li>Performance enhancement training</li>
+          <li>Motivational training sessions</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <h3>Career Readiness</h3>
+        <ul>
+          <li>Employability &amp; industry readiness</li>
+          <li>Interview preparation &amp; mock sessions</li>
+          <li>Career planning &amp; goal setting</li>
+          <li>Resume building &amp; personal branding</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Corporate Training</h3>
+        <ul>
+          <li>Employee induction programs</li>
+          <li>Corporate &amp; campus training</li>
+          <li>Placement-oriented training</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENTOR -->
+<section id="mentor">
+  <div class="container">
+    <div class="mentor-inner">
+      <div class="mentor-portrait">
+        <div class="mentor-avatar">RA</div>
+        <div class="mentor-name">A. Ramesh Aditya</div>
+        <div class="mentor-role">STRATEGIST · TRAINER · MENTOR</div>
+        <div class="mentor-stats">
+          <div class="m-stat"><div class="m-stat-num">25+</div><div class="m-stat-label">Years in HR &amp; Training</div></div>
+          <div class="m-stat"><div class="m-stat-num">500K+</div><div class="m-stat-label">Young Minds Inspired</div></div>
+          <div class="m-stat"><div class="m-stat-num">6000+</div><div class="m-stat-label">Training Hours Delivered</div></div>
+          <div class="m-stat"><div class="m-stat-num">600+</div><div class="m-stat-label">Institutions Connected</div></div>
+        </div>
+      </div>
+      <div class="mentor-content">
+        <div class="section-label">Meet Your Mentor</div>
+        <h2 class="section-title">Trusted Advisor to <em>Institutions &amp; Corporates</em></h2>
+        <div class="gold-rule"></div>
+        <ul class="mentor-points">
+          <li><span class="check">✔</span>25+ Years of Experience in HR, Training &amp; Placements</li>
+          <li><span class="check">✔</span>Specialist in Competitive Exam Coaching &amp; Career Strategy</li>
+          <li><span class="check">✔</span>Inspired over 500,000 young minds across India</li>
+          <li><span class="check">✔</span>Delivered 6,000+ hours of transformational training</li>
+          <li><span class="check">✔</span>Trusted advisor to corporates &amp; educational institutions</li>
+          <li><span class="check">✔</span>Strong expertise in talent management &amp; workforce development</li>
+          <li><span class="check">✔</span>Expertise in Recruitment &amp; Campus Hiring</li>
+        </ul>
+        <div class="mentor-contact">
+          <a href="tel:+919952350345" class="contact-chip">📞 +91 99523 50345</a>
+          <a href="mailto:tccg2026@gmail.com" class="contact-chip">✉ tccg2026@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="section-label">How We Work</div>
+    <h2 class="section-title">Our <em>Process</em></h2>
+    <div class="gold-rule"></div>
+    <div class="process-steps">
+      <div class="step"><div class="step-num">1</div><h3>Understand Goals</h3><p>Understand institutional goals and student requirements</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Design Modules</h3><p>Design customized training modules tailored to your needs</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Deliver Sessions</h3><p>Deliver workshops, mentoring, and career sessions</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Coordinate Placements</h3><p>Coordinate placement activities and campus drives</p></div>
+      <div class="step"><div class="step-num">5</div><h3>Track Outcomes</h3><p>Track student progress, outcomes, and success metrics</p></div>
+    </div>
+    <div style="margin-top:3rem;">
+      <div class="section-label" style="margin-bottom:0.5rem;">Corporate Recruitment Process</div>
+      <div class="process-steps" style="flex-wrap:wrap;">
+        <div class="step"><div class="step-num">1</div><h3>Requirements</h3><p>Receive and analyze client requirements</p></div>
+        <div class="step"><div class="step-num">2</div><h3>Benchmark</h3><p>Industry benchmarking and talent mapping</p></div>
+        <div class="step"><div class="step-num">3</div><h3>Source</h3><p>Candidate sourcing and screening</p></div>
+        <div class="step"><div class="step-num">4</div><h3>Interview</h3><p>Telephonic, personal, or virtual interviews</p></div>
+        <div class="step"><div class="step-num">5</div><h3>Submit</h3><p>Profile submission with recruiter remarks</p></div>
+        <div class="step"><div class="step-num">6</div><h3>Close</h3><p>Salary negotiation and offer closure</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="container">
+    <div class="section-label">Sectors We Serve</div>
+    <h2 class="section-title">Industries We <em>Cover</em></h2>
+    <div class="gold-rule" style="margin:1rem auto;"></div>
+    <p class="section-lead" style="margin:0 auto; text-align:center;">Deep domain expertise across the sectors that matter most.</p>
+    <div class="industry-grid">
+      <div class="industry-tag">⚙️ Manufacturing</div>
+      <div class="industry-tag">💻 Information Technology</div>
+      <div class="industry-tag">🖥️ ITES / BPO</div>
+      <div class="industry-tag">📡 Telecom</div>
+      <div class="industry-tag">🏦 Banking &amp; Finance</div>
+      <div class="industry-tag">💊 Pharmaceuticals</div>
+      <div class="industry-tag">🎓 Education</div>
+      <div class="industry-tag">🏥 Healthcare</div>
+      <div class="industry-tag">🏗️ Infrastructure</div>
+      <div class="industry-tag">🛒 Retail</div>
+      <div class="industry-tag">🚗 Automotive</div>
+      <div class="industry-tag">📦 Logistics</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-label">Our Moments</div>
+    <h2 class="section-title">Photo <em>Gallery</em></h2>
+    <div class="gold-rule"></div>
+    <p class="section-lead">Upload and showcase your campus events, placement drives, and training sessions.</p>
+
+    <label for="galleryUpload" class="gallery-upload-zone" id="dropZone">
+      <div class="upload-icon">📸</div>
+      <h3>Click to Upload Photos</h3>
+      <p>Drag &amp; drop images here, or click to browse<br/>Supports JPG, PNG, GIF, WEBP</p>
+      <input type="file" id="galleryUpload" multiple accept="image/*" onchange="handleGalleryUpload(event)"/>
+    </label>
+
+    <div class="gallery-grid" id="galleryGrid"></div>
+
+    <div class="gallery-placeholder" id="galleryPlaceholder">
+      <div class="gallery-ph-item">🏫<span>Campus Drive</span></div>
+      <div class="gallery-ph-item">🎤<span>Training Session</span></div>
+      <div class="gallery-ph-item">🏆<span>Award Ceremony</span></div>
+      <div class="gallery-ph-item">👥<span>Job Fair</span></div>
+      <div class="gallery-ph-item">🎓<span>Placement Day</span></div>
+      <div class="gallery-ph-item">📣<span>HR Conclave</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- POSTER -->
+<section id="poster">
+  <div class="container" style="text-align:center;">
+    <div class="section-label" style="color:rgba(255,214,0,0.7);">Promotional Material</div>
+    <h2 class="section-title" style="color:var(--white);">Digital <em>Poster</em></h2>
+    <div class="gold-rule" style="margin:1rem auto;"></div>
+    <div class="poster-wrapper" id="posterCard">
+      <div class="poster-header-bar">CAMPUS TRAINING · CAREER ENABLEMENT · INDUSTRY CONNECT</div>
+      <img src="logo.jpg" alt="TCCG Logo" class="poster-logo" id="poster-logo-img"/>
+      <h2 class="poster-title">THE CAREER CATALYSTS GLOBAL</h2>
+      <div class="poster-subtitle">TCCG · EMPOWERING TALENT · ELEVATING CAREERS · SHAPING FUTURE-READY PROFESSIONALS</div>
+      <div class="poster-tagline">🌟 Empowering Students. Transforming Careers.</div>
+      <p class="poster-desc">Turn academic potential into professional success. We create powerful pathways between campus and corporate through structured training and industry-driven initiatives. Connected with 600+ institutions across India.</p>
+
+      <div class="poster-grid">
+        <div class="poster-feature">
+          <h4>🎓 Campus Training Programs</h4>
+          <ul>
+            <li>Employability &amp; Industry Readiness</li>
+            <li>Communication &amp; Soft Skills</li>
+            <li>Interview Preparation &amp; Mock Sessions</li>
+            <li>Career Planning &amp; Goal Setting</li>
+            <li>Resume Building &amp; Personal Branding</li>
+          </ul>
+        </div>
+        <div class="poster-feature">
+          <h4>🤝 Career Engagement Initiatives</h4>
+          <ul>
+            <li>Campus Drives – Top Recruiters</li>
+            <li>Job Fairs – Large-Scale Hiring Platforms</li>
+            <li>HR Conclaves – Industry Networking</li>
+            <li>Mentoring &amp; Guidance Sessions</li>
+          </ul>
+        </div>
+        <div class="poster-feature">
+          <h4>👤 Lead Mentor</h4>
+          <ul>
+            <li>A. RAMESH ADITYA</li>
+            <li>25+ Years in HR &amp; Training</li>
+            <li>Inspired 500,000+ Young Minds</li>
+            <li>6,000+ Training Hours Delivered</li>
+          </ul>
+        </div>
+        <div class="poster-feature">
+          <h4>✅ Why Choose TCCG?</h4>
+          <ul>
+            <li>Industry-aligned training ecosystem</li>
+            <li>Strong corporate network</li>
+            <li>Proven transformation results</li>
+            <li>Outcome-driven approach</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="poster-cta">
+        <h3>"Transform Your Campus into a Career Launchpad!"</h3>
+        <p>Partner with TCCG for Training &amp; Placement Excellence</p>
+      </div>
+
+      <div class="poster-contact-row">
+        <a href="tel:+919952350345">📞 +91 99523 50345</a>
+        <a href="mailto:tccg2026@gmail.com">✉ tccg2026@gmail.com</a>
+      </div>
+      <div class="poster-final-tagline">"Train Today. Lead Tomorrow." ✨</div>
+    </div>
+    <div class="poster-download">
+      <button class="btn-primary" onclick="window.print()">🖨️ Print / Save Poster</button>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY -->
+<section id="enquiry">
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Send an <em>Enquiry</em></h2>
+    <div class="gold-rule"></div>
+    <div class="enquiry-grid">
+      <div class="enquiry-info">
+        <h3>Let's Start a Conversation</h3>
+        <p>Whether you're a college looking for placement support, a corporate seeking talent solutions, or a student looking for career guidance — we're here to help.</p>
+        <div class="contact-item">
+          <div class="ci-icon">📞</div>
+          <div>
+            <div class="ci-label">PHONE</div>
+            <div class="ci-value">+91 99523 50345</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">✉️</div>
+          <div>
+            <div class="ci-label">EMAIL</div>
+            <div class="ci-value">tccg2026@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div>
+            <div class="ci-label">HEADQUARTERS</div>
+            <div class="ci-value">Chennai, Tamil Nadu, India</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="enquiry-form" id="enquiryForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" id="fname" placeholder="Your full name"/>
+            </div>
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="tel" id="fphone" placeholder="+91 00000 00000"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" id="femail" placeholder="your@email.com"/>
+          </div>
+          <div class="form-group">
+            <label>Organization / Institution</label>
+            <input type="text" id="forgname" placeholder="College, Company, or School name"/>
+          </div>
+          <div class="form-group">
+            <label>I am enquiring as *</label>
+            <select id="ftype">
+              <option value="">Select one...</option>
+              <option>College / Institution</option>
+              <option>Corporate / Company</option>
+              <option>Student</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Service of Interest</label>
+            <select id="fservice">
+              <option value="">Select a service...</option>
+              <option>Training &amp; Placement Support</option>
+              <option>Student Development Programs</option>
+              <option>Academic Growth Support</option>
+              <option>Recruitment Solutions</option>
+              <option>HR Consulting</option>
+              <option>Corporate Training</option>
+              <option>Career Guidance</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea id="fmessage" placeholder="Tell us about your requirements..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">SEND ENQUIRY →</button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          ✅ Thank you! Your enquiry has been submitted.<br/>
+          We will reach out to you within 24 hours.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.jpg" alt="TCCG Logo" id="footer-logo-img"/>
+      <p>The Career Catalysts Global (TCCG) — Empowering students, enabling careers, and building futures through expert training, placement support, and HR consulting across India.</p>
+    </div>
+    <div class="footer-col">
+      <h4>QUICK LINKS</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#mentor">Our Mentor</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#enquiry">Enquiry</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>CONTACT</h4>
+      <ul>
+        <li><a href="tel:+919952350345">📞 +91 99523 50345</a></li>
+        <li><a href="mailto:tccg2026@gmail.com">✉ tccg2026@gmail.com</a></li>
+        <li><a href="mailto:rameshadi@gmail.com">✉ rameshadi@gmail.com</a></li>
+        <li><a href="#">📍 Chennai, Tamil Nadu</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 The Career Catalysts Global (TCCG). All rights reserved.</span>
+    <span style="color:rgba(255,214,0,0.6);">"Train Today. Lead Tomorrow."</span>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt="Gallery Image"/>
+</div>
+
+<!-- BACK TO TOP -->
+<a href="#home" class="back-to-top" id="backToTop">↑</a>
+
+<script>
+// ── Logo fallback
+function setupLogo(id){
+  const img = document.getElementById(id);
+  if(img) img.onerror = ()=>{ img.style.display='none'; };
+}
+['nav-logo-img','hero-logo-img','poster-logo-img','footer-logo-img'].forEach(setupLogo);
+
+// ── Mobile menu
+function toggleMobile(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMobile(){
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// ── Service tabs
+function showTab(tab){
+  document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── Gallery
+const galleryImages = [];
+function handleGalleryUpload(e){
+  const files = Array.from(e.target.files);
+  files.forEach(file=>{
+    const reader = new FileReader();
+    reader.onload = ev => addGalleryImage(ev.target.result, file.name);
+    reader.readAsDataURL(file);
+  });
+}
+function addGalleryImage(src, name){
+  document.getElementById('galleryPlaceholder').style.display='none';
+  const grid = document.getElementById('galleryGrid');
+  const idx = galleryImages.length;
+  galleryImages.push(src);
+  const item = document.createElement('div');
+  item.className='gallery-item'; item.id='gitem-'+idx;
+  item.innerHTML=`
+    <img src="${src}" alt="${name}" onclick="openLightbox('${src}')"/>
+    <div class="gallery-overlay"><span>🔍</span></div>
+    <button class="gallery-remove" onclick="removeGalleryItem(${idx},event)">✕</button>
+  `;
+  grid.appendChild(item);
+}
+function removeGalleryItem(idx, e){
+  e.stopPropagation();
+  const el = document.getElementById('gitem-'+idx);
+  if(el) el.remove();
+  if(document.getElementById('galleryGrid').children.length===0){
+    document.getElementById('galleryPlaceholder').style.display='grid';
+  }
+}
+function openLightbox(src){
+  document.getElementById('lightboxImg').src=src;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
+
+// drag-drop
+const dz = document.getElementById('dropZone');
+if(dz){
+  dz.addEventListener('dragover',e=>{e.preventDefault();dz.style.borderColor='var(--gold)';});
+  dz.addEventListener('dragleave',()=>dz.style.borderColor='');
+  dz.addEventListener('drop',e=>{
+    e.preventDefault(); dz.style.borderColor='';
+    const files = Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/'));
+    files.forEach(file=>{
+      const reader=new FileReader();
+      reader.onload=ev=>addGalleryImage(ev.target.result,file.name);
+      reader.readAsDataURL(file);
+    });
+  });
+}
+
+// ── Enquiry form
+function submitForm(){
+  const fname=document.getElementById('fname').value.trim();
+  const femail=document.getElementById('femail').value.trim();
+  const fphone=document.getElementById('fphone').value.trim();
+  const ftype=document.getElementById('ftype').value;
+  if(!fname||!femail||!fphone||!ftype){
+    alert('Please fill in all required fields.');
+    return;
+  }
+  document.getElementById('enquiryForm').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+}
+
+// ── Back to top
+window.addEventListener('scroll',()=>{
+  const btn=document.getElementById('backToTop');
+  if(window.scrollY>400) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+});
+</script>
+</body>
+</html>
